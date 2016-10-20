@@ -1,0 +1,43 @@
+/* A program which prints itself backwards
+ * to the screen
+ * 
+ * lt1516
+ */
+
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+
+  cout << endl;
+  cout << "Hello, this program prints its own source code out backwards";
+  cout << endl << endl;
+
+  ifstream input;
+  
+  int count = 0;
+  char ch;
+  char ch_prev;
+  
+  input.open("q4.cpp");
+
+  if (input.fail()) {
+    cout << "File could not be loaded!" << endl << endl;
+    return 1;
+  }
+
+  input.get(ch);
+  while (!input.eof()) {
+    count++;
+    input.get(ch);
+    ch_prev = ch;
+  }
+  input.close();
+
+  cout << "Total number of characters: " << count << endl;
+  cout << "Last char was: " << ch_prev << endl;
+
+  return 0;
+}

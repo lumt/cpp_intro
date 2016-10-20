@@ -1,0 +1,65 @@
+/* A program which prints itself backwards
+ * to the screen
+ * 
+ * lt1516
+ */
+
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+char printchar_at_pos(int pos);
+
+int main() {
+
+  ifstream input;
+  
+  int count = 0;
+  char ch;
+  char ch_prev;
+  
+  input.open("q4.cpp");
+  
+  if (input.fail()) {
+    cout << "File could not be loaded!" << endl << endl;
+    return 1;
+  }
+  
+  input.get(ch);
+  while (!input.eof()) {
+    count++;
+    ch_prev = ch;
+    input.get(ch);
+  }
+  input.close();
+
+  int pos;
+
+  /* Starts at end of file and counts backwards until beginning */
+  for (pos = count; pos > 0; pos--) {
+    // opens file, take in pos and prints each char
+    cout << printchar_at_pos(pos);
+  }
+
+  return 0;
+}
+
+char printchar_at_pos(int pos) {
+  ifstream input;
+  input.open("q4.cpp");
+
+  char buffer;
+  int x;
+
+  // reads up to that position
+  for (x = 0; x < pos; x++) {
+    input.get(buffer);
+  }
+
+  input.close();
+
+  // only returns that position
+  return buffer;
+}
+  
