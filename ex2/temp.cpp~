@@ -1,0 +1,27 @@
+/* 
+ * To print out Fahrenheit, Celcius and Kelvin Temperatures
+ */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  // Print headers
+  cout.width(15);
+  cout << "Fahrenheit";
+  cout.width(15);
+  cout << "Celcius";
+  cout.width(15);
+  cout << "Kelvin\n";
+
+  // initialize values
+  // int store;
+  
+  // Print values in for loop
+  for (int n = 0; n <= 300; n = n + 10) {
+    cout << n << "\n";
+  }
+  return 0;
+}
