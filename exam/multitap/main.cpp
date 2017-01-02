@@ -44,9 +44,21 @@ int main() {
   encode("Meet Anna at 5pm", multitap);
   cout << "The string 'Meet Anna at 5pm' encoded in multitap is '" << multitap << "'" << endl;
 
+  encode("IiiIiit Is 4am on 2nd Jan 2017", multitap);
+  cout << "The string 'IiiIiit Is 4am on 2nd Jan 2017' encoded in multitap is '" << multitap << "'" << endl;
+
   cout << endl;
 
   cout << "====================== Question 3 ======================" << endl << endl;
+
+  cout << "Testing decode character" << endl;
+  char ch;
+  ch = decode_character("444");
+  cout << "Decoding '444' gives: " << ch << endl;
+  ch = decode_character("6");
+  cout << "Decoding '6' gives: " << ch << endl;
+  ch = decode_character("9999");
+  cout << "Decoding '9999' gives: " << ch << endl;
 
   ifstream input("message.txt");
   cout << "The plaintext for the multitap encoded message in 'message.txt' is: " << endl;
@@ -54,6 +66,8 @@ int main() {
   input.close();
 
   cout << endl;
+
+
 
   return 0;
 }
