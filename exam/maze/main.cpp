@@ -34,6 +34,22 @@ int main() {
   find_marker('X', maze, height, width, row, column);
   cout << "The exit is at row " << row << " column " << column << endl << endl;
 
+
+  // char **mazeX;
+  // int heightX, widthX;
+  // mazeX = load_maze("simx.txt", heightX, widthX);
+  // cout << "Testing get_path :" << endl;
+  // cout << get_path(mazeX, heightX, widthX, '>', 'X') << endl;
+
+  // print_maze(mazeX, heightX, widthX);
+
+
+
+
+  // deallocate_2D_array(mazeX, heightX);
+
+
+
   cout << "====================== Question 2 ======================" << endl << endl;
 
   cout << "The move sequence 'EEEEESEENN' is ";
