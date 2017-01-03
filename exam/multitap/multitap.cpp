@@ -135,6 +135,11 @@ char decode_character(const char* multitap) {
 	return '$';
 }
 
+
+
+/* these are extra for qs 3 */
+
+// function to print decoded
 void print_decode(const char* buffer, ostream& out, bool caps) {
 	char ch = decode_character(buffer);
 
@@ -144,7 +149,6 @@ void print_decode(const char* buffer, ostream& out, bool caps) {
 }
 
 // function to decode message from given istream to ostream
-// assumes no digit (ie no *)
 void decode(istream& in, ostream& out) {
 	
 	char ch, decoded, buffer[4+1];
