@@ -13,7 +13,7 @@ int encode_character(char ch, char* multitap) {
 			case 'c': strcpy(multitap, "222"); break;
 			case 'd': strcpy(multitap, "3"); break;
 			case 'e': strcpy(multitap, "33"); break;
-			case 'f': strcpy(multitap, "333"); break;			
+			case 'f': strcpy(multitap, "333"); break;
 			case 'g': strcpy(multitap, "4"); break;
 			case 'h': strcpy(multitap, "44"); break;
 			case 'i': strcpy(multitap, "444"); break;
@@ -25,12 +25,12 @@ int encode_character(char ch, char* multitap) {
 			case 'o': strcpy(multitap, "666"); break;
 			case 'p': strcpy(multitap, "7"); break;
 			case 'q': strcpy(multitap, "77"); break;
-			case 'r': strcpy(multitap, "777"); break;			
+			case 'r': strcpy(multitap, "777"); break;
 			case 's': strcpy(multitap, "7777"); break;
 			case 't': strcpy(multitap, "8"); break;
 			case 'u': strcpy(multitap, "88"); break;
 			case 'v': strcpy(multitap, "888"); break;
-			case 'w': strcpy(multitap, "9"); break;			
+			case 'w': strcpy(multitap, "9"); break;
 			case 'x': strcpy(multitap, "99"); break;
 			case 'y': strcpy(multitap, "999"); break;
 			case 'z': strcpy(multitap, "9999"); break;
@@ -68,7 +68,7 @@ int encode_character(char ch, char* multitap) {
 
 // function to encode plaintext as multitap
 void encode(const char* text, char* multitap) {
-	
+
 	int multilen;
 	char buffer[4+1];
 	bool capslock = false;
@@ -150,7 +150,7 @@ void print_decode(const char* buffer, ostream& out, bool caps) {
 
 // function to decode message from given istream to ostream
 void decode(istream& in, ostream& out) {
-	
+
 	char ch, decoded, buffer[4+1];
 	bool capslock = false;
 	int buflen;
@@ -209,9 +209,6 @@ void decode(istream& in, ostream& out) {
 
 	}
 	// last word
-	buflen = strlen(buffer);
-	if (buflen > 1)
-		buffer[buflen-1] = '\0';
 	print_decode(buffer, out, capslock);
 
 	cout << endl;
