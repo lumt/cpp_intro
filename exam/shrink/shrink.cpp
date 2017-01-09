@@ -43,6 +43,7 @@ void encode(const char* word, char* compressed, const char** dictionary) {
       // val[0] = result % 10 + '0';
       // val[1] = (result - result % 10)/10 + '0';
       itoa(result, val, 10);
+      // testing itoa
     }
 
     val[2] = '\0';
