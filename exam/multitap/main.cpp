@@ -28,7 +28,7 @@ int main() {
 
   size = encode_character(',', multitap);
   cout << "The character ',' encoded in multitap is '" << multitap << "' (" << size << " keystrokes)" << endl;
-  
+
   cout << endl;
   multitap[0] = '\0';
 
@@ -66,8 +66,6 @@ int main() {
   input.close();
 
   cout << endl;
-
-
 
   return 0;
 }
