@@ -137,9 +137,9 @@ char decode_character(const char* multitap) {
 
 
 
-/* these are extra for qs 3 */
+/* these are extra for qs 3 (which is not in pdf file for some reason) */
 
-// function to print decoded
+// function to print decoded given buffer and capslock
 void print_decode(const char* buffer, ostream& out, bool caps) {
 	char ch = decode_character(buffer);
 
@@ -156,34 +156,37 @@ void decode(istream& in, ostream& out) {
 	int buflen;
 	buffer[0] = '\0';
 
-	while (!in.eof()) {
-		in.get(ch);
-		// check if capslock # (word ended)
-		if (ch == '#') {
+	while (in.get(ch)) {
 
+		// check if capslock #
+		if (ch == '#') {
+			// then word has ended
 			if (buffer[0]) {
+				// print previous buffer
 				print_decode(buffer, out, capslock);
 			}
+
+			// clear buffer
 			buffer[0] = '\0';
-			if (capslock) {
-				capslock = false;
-			}
-			else {
-				capslock = true;
-			}
+
+			// alter capslock
+			capslock? capslock = false : capslock = true;
 			continue;
 		}
 
-		// check if pause character (word ended)
+		// check if pause character]
 		if (ch == '|') {
+			// word has ended, so print buffer and clear
 			print_decode(buffer, out, capslock);
 			buffer[0] = '\0';
 			continue;
 		}
 
+		// if numeric characters coming up
 		if (ch == '*') {
-			in.get(ch);
+			// print current buffer and print upcoming number
 			print_decode(buffer, out, capslock);
+			in.get(ch);
 			out << ch;
 			buffer[0] = '\0';
 			continue;
@@ -191,7 +194,7 @@ void decode(istream& in, ostream& out) {
 
 		// store buffer only if num
 		if (isdigit(ch)) {
-			// out << ch << " " ;
+
 			buflen = strlen(buffer);
 
 			if (buflen == 0) {
@@ -208,8 +211,7 @@ void decode(istream& in, ostream& out) {
 		}
 
 	}
-	// last word
+	// prints last word
 	print_decode(buffer, out, capslock);
-
 	cout << endl;
 }

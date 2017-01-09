@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
+#include <string>
 
 using namespace std;
 
@@ -64,6 +66,24 @@ int main() {
   cout << "'05' compressed is '" << compressed << "'" << endl;
 
   cout << endl;
+
+  cout << "======================== End ============================" << endl;
+
+  int num = atoi("123");
+  cout << num + 2 << endl << endl;
+
+  string str = "this is a string";
+  cout << str << endl;
+  cout << "converting to cstring" << endl;
+  char *cstr = new char[(str.length()+1)];
+  strcpy(cstr, str.c_str());
+  cout << "printing cstring" << endl;
+  cout << cstr << endl << endl;
+
+  cout << "converting back" << endl;
+  string str1 = cstr;
+  cout << str1<<endl;
+
 
   return 0;
 }

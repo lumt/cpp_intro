@@ -98,7 +98,7 @@ void print_maze(char **m, int height, int width) {
 /* Own functions below */
 
 // function to find the coordinate of marker character ch 
-// if find return true and set row and col to the coordinates
+// if found return true and set row and col to the coordinates
 // else set both to -1 and return false;
 bool find_marker(char ch, char **maze, int height, int width, int& row, int& col)
 {
@@ -144,6 +144,7 @@ bool valid_solution(const char *path, char **maze, int height, int width) {
 			row > height || row < 0)
 			return false;
 
+		// if you try to go through a wall
 		if (i < n - 1 && maze[row][col] != ' ')
 			return false;
 	}
@@ -279,6 +280,6 @@ bool foundPath(char** maze, int height, int width, char start, char end, char* p
 		}
 	}
 
-	// all adjacent blocks are occupied
+	// all adjacent blocks are occupied >> no path exists
 	return false;
 }

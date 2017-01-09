@@ -197,7 +197,7 @@ bool find_rhyme_scheme(const char* filename, char* scheme) {
 	return false;
 }
 
-
+// function to identify type of sonnet by comparing schemes
 char* identify_sonnet(const char* filename) {
 	char* type = new char[20];
 	char scheme[20];
@@ -215,6 +215,4 @@ char* identify_sonnet(const char* filename) {
 
 	return type;
 }
-
-
 

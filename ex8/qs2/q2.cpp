@@ -109,17 +109,22 @@ void print_list(Node *my_list)
 	cout << endl;
 }
 
-/* function to print list backwards */
+/* function to print list backwards (recursively) */
 void print_back(Node *here)
 {
+	// if not last one
 	if (here->next != NULL) {
+		// print the next one
 		print_back(here->next);
+		// before you print yourself
 		cout << here->word << " ";
 	} else {
+		// i am the last node, so i print myself and return the stack
 		cout << here->word << " ";
 	}
 }
 
+// iterative version
 void print_back_iter(Node *my_list, int list_size)
 {
 	char array[list_size][MAX];
