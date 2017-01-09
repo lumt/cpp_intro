@@ -150,6 +150,7 @@ int decode(const char* received, char* decoded) {
 
 		// error found
 		if (!(p1 == 0 && p2 == 0 && p3 == 0)) {
+			// increase error count and flip
 			errors++;
 			int flip = p1 * 4 + p2 * 2 + p3;
 			if (buffer[flip-1] == '1')
@@ -171,7 +172,6 @@ int decode(const char* received, char* decoded) {
 		else
 			strcat(decoded, extract);
 	}
-	// cout << endl;
 
 	return errors;
 }

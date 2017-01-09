@@ -78,6 +78,7 @@ int anagram(const char* str1, const char* str2) {
 	selSort(str1_cpy);
 	selSort(str2_cpy);
 
+	// do the magic
 	if (compare(str1_cpy, str2_cpy))
 		return 1;
 	else

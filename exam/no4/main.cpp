@@ -48,6 +48,9 @@ int main() {
 	encodeR("hi?", braille);
 	cout << "The string 'hi?' encoded (R) in braille is:" << endl << braille << endl << endl;	
 
+	encodeR("Hello!", braille);
+	cout << "The string 'Hello!' encoded (R) in braille is:" << endl << braille << endl << endl;
+
 	encode("Hello!", braille);
 	cout << "The string 'Hello!' encoded in braille is:" << endl << braille << endl << endl;
 

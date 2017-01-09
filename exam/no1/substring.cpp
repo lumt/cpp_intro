@@ -29,7 +29,6 @@ int substring_position(const char* sub, const char* str)
 
 
 // Function to check if sub is a prefix of str
-// prefix = beginning
 bool is_prefix(const char* sub, const char* str)
 {
 	if (strlen(sub) == 0) {
@@ -40,6 +39,7 @@ bool is_prefix(const char* sub, const char* str)
 		// creates copy to store sub[1:]
 		char sub_cpy[strlen(sub)];
 		int i;
+		// copies everything from [1:]
 		for (i = 1; i < strlen(sub) + 1; i++)
 			*(sub_cpy + i - 1) = *(sub + i);
 
@@ -47,7 +47,7 @@ bool is_prefix(const char* sub, const char* str)
 		char str_cpy[strlen(str)];
 		for (i = 1; i < strlen(str) + 1; i++)
 			*(str_cpy + i - 1) = *(str + i);
-
+		
 		return is_prefix(sub_cpy, str_cpy);
 	}
 

@@ -74,7 +74,7 @@ void translateWord(const char* english, char* piglatin) {
 
 	int strlenPig = strlen(piglatin);
 
-	// capitalize and lower rest
+	// capitalize and lower rest if eng version is caps
 	if (isupper(engCopy[0])) {
 		piglatin[0] = toupper(piglatin[0]);
 		for (int i = 1; i < strlenPig; i++)

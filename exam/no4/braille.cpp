@@ -7,9 +7,8 @@ int encode_character(char ch, char* braille) {
 
 	char alpha[] = "......";
 
-	// determine type of ch
+	// if ch is alphabetic
 	if (isalpha(ch)) {
-
 		if (isupper(ch)) {
 			strcpy(braille, ".....0");		// add capital sign
 			encode_alpha(ch, alpha);		// encode letter
@@ -20,8 +19,9 @@ int encode_character(char ch, char* braille) {
 		}
 	}
 
+	// if ch is numeric
 	if (isdigit(ch)) {
-		// add nmber sign
+		// add numberic sign
 		strcpy(braille, "..0000");
 
 		// convert to char
@@ -99,19 +99,20 @@ void encode(const char* text, char* braille) {
 }
 
 // function to encode string of text to braille (recursive)
-// doesn't 'clear' braille though...
 void encodeR(const char* text, char* braille) {
+	// clears braille array everytime this function is called
+	braille[0] = '\0';
+	encodable(text, braille);
+}
+
+// helper function for encode recursive version to make life easier
+bool encodable(const char* text, char* braille) {
 
 	char buffer[] = "............";
-	// const char* pass = &text[0];
-	// cout << pass << endl;
-	// cout << (int*)&text[0] << " ";
 
-	// // if starting
-	// if ((int*)&text[0] == (int*)&text[0]) {
-	// 	cout << "resetting braille" << endl;
-	// 	braille[0] = '\0';
-	// }
+	// if text is empty, it is encodable
+	if (!text[0])
+		return true;
 
 	if (text[0]) {
 		encode_character(text[0], buffer);
@@ -120,25 +121,11 @@ void encodeR(const char* text, char* braille) {
 		} else {
 			strcat(braille, buffer);
 		}
-		encodeR(&text[1], braille);
+		return encodable(&text[1], braille);
 	}
+
+	return false;
 }
-
-// bool encodeR(const char* text, char* braille) {
-
-// 	if (text[0] == '\0')
-// 		return true;
-
-// 	char buffer[13];
-
-// 	encode_character(text[0], buffer);
-// 	strcat(braille, buffer);
-
-// 	if (encodeR(text+1, braille))
-// 		return true;
-
-// 	return false;
-// }
 
 
 // function to print braille to output stream

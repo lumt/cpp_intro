@@ -4,6 +4,12 @@
 using namespace std;
 
 int main() {
+
+	cout << "Testing is_prefix: " << endl;
+	if(is_prefix("indent", "indentation"))
+		cout << "indent is prefix of indentation" << endl;
+
+	cout << "Testing substring_position results: " <<endl;
 	cout << substring_position("this", "this is a simple exercise") << endl;
 	cout << substring_position("is", "this is a simple exercise") << endl;
 	cout << substring_position("is a", "this is a simple exercise") << endl;

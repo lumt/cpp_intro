@@ -30,7 +30,7 @@ void encode(const char* surname, char* soundex){
 				soundex[soundex_it] = '3';
 				soundex_it++;
 			}
-		} else if (surname[surname_it]== 'l') {
+		} else if (surname[surname_it] == 'l') {
 			if (soundex[soundex_it -1] != '4') {
 				soundex[soundex_it] = '4';
 				soundex_it++;
@@ -40,7 +40,7 @@ void encode(const char* surname, char* soundex){
 				soundex[soundex_it] = '5';
 				soundex_it++;
 			}
-		} else if (surname[surname_it]== 'l') {
+		} else if (surname[surname_it] == 'r') {
 			if (soundex[soundex_it -1] != '6') {
 				soundex[soundex_it] = '6';
 				soundex_it++;
@@ -56,7 +56,6 @@ void encode(const char* surname, char* soundex){
 	}
 
 	soundex[4] = '\0';
-
 }
 
 // returns true if char letter within string "phrase"
